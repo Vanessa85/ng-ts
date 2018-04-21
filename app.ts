@@ -9,7 +9,10 @@ let injector = ReflectiveInjector.resolveAndCreate([
 ]);
 
 let emailService = injector.get(MandrillService);
+emailService.foo = 'foo!';
 let emailService2 = injector.get(MandrillService);
 
 console.log(emailService);
+// Dependency caching
 console.log(emailService === emailService2);
+console.log(emailService2.foo);
